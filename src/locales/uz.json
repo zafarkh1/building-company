@@ -1,0 +1,94 @@
+{
+    "navbar": {
+      "services": "Xizmatlar",
+      "data": "Ma'lumotlar",
+      "projects": "Loyihalar",
+      "news": "Yangiliklar",
+      "about": "Biz haqimizda",
+      "contact": "Aloqa",
+      "toggle_menu": "Menyuni almashtirish",
+      "logo_alt": "logo",
+      "language_uz": "O'zbekcha",
+      "language_ru": "Ruscha",
+      "language_en": "Inglizcha"
+    },
+    "showcase": {
+       "subtitle": "Hamma narsa a'lo",
+       "projects_button": "Bizning loyihalarimiz",
+        "contact_button": "Bog'lanish"
+     },
+     "services": {
+        "title": "Bizning xizmatlarimiz",
+         "free_consultation": "Siz kompaniyamiz mutaxassislaridan bepul ma'lumot olishingiz mumkin",
+         "documentation": "Hujjatlarni rasmiylashtirish",
+         "repair_service": "Ta`mirlash tuzatish xizmati",
+         "professional_team": "Professionallar jamoasi"
+  },
+  "stats": {
+    "title": "Bizning kompaniyada",
+    "staff_count": "Xodimlar soni",
+    "objects": "Ob'ektlar",
+    "special_equipment": "Maxsus jihozlar",
+    "years_in_market": "Bozorda 14 yil"
+  },
+  "house": {
+    "title": "Sizning orzuingizdagi uy"
+  },
+  "projects": {
+    "our_projects": "Bizning loyihalarimiz",
+    "magic_city_title": "Magic City",
+    "magic_city_desc": "Bu keng ko'lamli ijtimoiy ahamiyatga ega loyiha. Toshkentdagi madaniy-ko'ngilochar klaster yangi diqqatga sazovor joylardan biridir.",
+    "invento_title": "Invento",
+    "invento_desc": "Fonon - O'zbekistonda 2020 yilda italyan zavodlari negizida qurilgan zargarlik buyumlari ishlab chiqarish zavodi. Fonon - Markaziy Osiyoda Yevropa va Sharq uslubida qimmatbaho metallardan zargarlik buyumlari ishlab chiqaradigan yagona yirik korxona.",
+    "gardens_residence_title": "Gardens Residence",
+    "gardens_residence_desc": "O'zbekiston aholisiga qulaylik yaratish maqsadida yaratilgan ko'p funksiyali turar-joy majmuasi.",
+    "fonon_title": "Fonon",
+    "fonon_desc": "Poytaxt markazidagi muhtasham turar-joy massivi.",
+    "presidential_school_title": "Presidential School",
+    "presidential_school_desc": "Tashkent City xalqaro biznes markazida joylashgan xalqaro bolalar bog'chasi va maktabi.",
+    "boulevard_title": "Boulevard",
+    "boulevard_desc": "Bu xalqaro darajada bilim beradigan ta'lim muassasasi."
+  },
+  "news": {
+    "all_news": "Barcha yangiliklarimiz",
+    "construction_project_manager_title": "Qurilish loyihasi menejeri kim?",
+    "construction_project_manager_desc": "Discover Invest kompaniyasida qurilish loyihasi bo'yicha bir nechta menejerlar mavjud. Bu mutaxassis o'ziga ishonib topshirilgan qurilish ob'ektini muvaffaqiyatli amalga oshirish uchun mas'uldir. U rejalashtirish bosqichidan va loyiha hujjatlarini tasdiqlashdan tortib, ishga tushirishgacha bo'lgan butun jarayonni boshqaradi. binoning, va ba'zan ham loyihadan keyingi yordamni amalga oshiradi.",
+    "new_year_greetings_title": "Barchani kelayotgan 2024 yil bilan tabriklayman!",
+    "new_year_greetings_desc": "Zallarning murakkab ichki dizayni kvartiraga kirishdan oldin ham qulaylik muhitini yaratadi va qulay navigatsiya tizimi sizga kerakli qavatga osongina chiqishga yoki hududga chiqishga yordam beradi.",
+    "address_title": "Manzil",
+    "address_desc": "Transport infratuzilmasi shaharning istalgan nuqtasiga osongina ko'chib o'tishga imkon beradi: siz faqat kerakli va kerakli yo'nalishni tanlashingiz kerak.",
+    "discover_invest_title": "Biz sizni Discover Invest ko'p funksiyali ob'ektlari bilan tanishtirishda davom etamiz.",
+    "discover_invest_desc": "Biz sizlarni 'ATAEV BAHODIR BUILD' kompaniyasining ko'p funksiyali ob'ektlari bilan tanishtirishda davom etamiz. Ulardan biri Toshkent shahrining Yangixoyat tumanida barpo etilgan 'Yangi Choshtepa turar-joy majmuasidir. Qurilishning umumiy maydoni 12 gektarni tashkil etadi. Shu kungacha 29 ta uy-joy qurildi."
+  },
+  "partners": {
+    "title": "Hamkorlar bilan fikr almashish"
+  },
+  "about": {
+    "title": "ATAEV BAHODIR BUILD",
+    "description": "Biz shunchaki loyihalar yaratmaymiz, yangi imkoniyatlar yaratamiz. Davlat miqyosidagi inshootlarni qurish orqali biz kelajakni quryapmiz. Biz atrof-muhit haqida qayg'uramiz: kompaniya binolar va infratuzilmani qurish va ulardan foydalanish bilan bog'liq ekologik jihatlar uchun to'liq javobgarlikni o'z zimmasiga oladi.",
+    "learn_more": "Batafsil bilish"
+  },
+  "communication": {
+    "heading": "Savol, taklif va murojaatlar bormi?",
+    "name_placeholder": "Ismingiz",
+    "tel_placeholder": "Telefon raqamingiz",
+    "message_placeholder": "Sizning xabaringiz",
+    "submit_button": "Yuborish",
+    "success_message": "Xabar yuborildi",
+    "error_message": "Xatolik yuz berdi: {{error}}"
+  },
+  "footer": {
+    "company": "Kompaniyamiz",
+    "projects": "Loyihalar",
+    "news": "Yangiliklar",
+    "services": "Xizmatlar",
+    "contact": "Aloqa"
+  },
+  "aboutPage": {
+    "title": "ATAEV BAHODIR BUILD",
+    "backToHome": "Asosiy sahifaga qaytish",
+    "description": "Biz shunchaki loyihalar yaratmaymiz, yangi imkoniyatlar yaratamiz. Davlat miqyosidagi inshootlarni qurish orqali biz kelajakni quryapmiz. Biz atrof-muhit haqida qayg'uramiz: kompaniya binolar va infratuzilmani qurish va ulardan foydalanish bilan bog'liq ekologik jihatlar uchun to'liq javobgarlikni o'z zimmasiga oladi.",
+    "imgAlt": "about page image"
+  }
+  }
+  

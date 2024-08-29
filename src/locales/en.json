@@ -1,0 +1,94 @@
+{
+    "navbar": {
+      "services": "Services",
+      "data": "Data",
+      "projects": "Projects",
+      "news": "News",
+      "about": "About Us",
+      "contact": "Contact",
+      "toggle_menu": "Toggle menu",
+      "logo_alt": "logo",
+      "language_uz": "Uzbek",
+      "language_ru": "Russian",
+      "language_en": "English"
+    },
+    "showcase": {
+        "subtitle": "Everything is perfect",
+        "projects_button": "Our Projects",
+        "contact_button": "Contact Us"
+   },
+   "services": {
+    "title": "Our Services",
+    "free_consultation": "You can get free advice from our company experts",
+    "documentation": "Documentation processing",
+    "repair_service": "Repair and maintenance service",
+    "professional_team": "Team of professionals"
+  },
+  "stats": {
+    "title": "In our company",
+    "staff_count": "Number of employees",
+    "objects": "Objects",
+    "special_equipment": "Special equipment",
+    "years_in_market": "14 years in the market"
+  },
+  "house": {
+    "title": "Your Dream House"
+  },
+  "projects": {
+    "our_projects": "Our Projects",
+    "magic_city_title": "Magic City",
+    "magic_city_desc": "This is a large-scale project of social importance. The cultural and entertainment cluster in Tashkent is one of the city's new attractions.",
+    "invento_title": "Invento",
+    "invento_desc": "Fonon is a jewelry manufacturing plant in Uzbekistan, established in 2020 on the basis of Italian factories. Fonon is the only major company in Central Asia producing jewelry from precious metals in European and Eastern styles.",
+    "gardens_residence_title": "Gardens Residence",
+    "gardens_residence_desc": "A multifunctional residential complex created to provide comfort for the residents of Uzbekistan.",
+    "fonon_title": "Fonon",
+    "fonon_desc": "A luxurious residential complex in the center of the capital.",
+    "presidential_school_title": "Presidential School",
+    "presidential_school_desc": "An international kindergarten and school located in the Tashkent City International Business Center.",
+    "boulevard_title": "Boulevard",
+    "boulevard_desc": "An educational institution providing international-level education."
+  },
+  "news": {
+    "all_news": "All News",
+    "construction_project_manager_title": "Who is a Construction Project Manager?",
+    "construction_project_manager_desc": "Discover Invest has several managers for construction projects. This specialist is responsible for successfully completing the construction site entrusted to them. They manage the entire process from the planning stage and approval of project documents to the launch of the building, and sometimes also provide post-project support.",
+    "new_year_greetings_title": "Happy New Year 2024!",
+    "new_year_greetings_desc": "The complex interior design of the halls creates a comfortable environment even before entering the apartment, and a convenient navigation system helps you easily reach the required floor or area.",
+    "address_title": "Address",
+    "address_desc": "The transport infrastructure allows for easy relocation to any point in the city: you just need to choose the required and necessary route.",
+    "discover_invest_title": "We continue to introduce you to Discover Invest's multifunctional facilities.",
+    "discover_invest_desc": "We continue to introduce you to the multifunctional facilities of 'ATAEV BAHODIR BUILD'. One of them is the 'New Choshtepa Residential Complex' built in the Yangikhayot district of Tashkent. The total construction area is 12 hectares. So far, 29 residential buildings have been constructed."
+  },
+  "partners": {
+    "title": "Collaborating with Partners"
+  },
+  "about": {
+    "title": "ATAEV BAHODIR BUILD",
+    "description": "We don't just create projects; we create new opportunities. By building state-level facilities, we are shaping the future. We care about the environment: the company takes full responsibility for the ecological aspects related to the construction and use of buildings and infrastructure.",
+    "learn_more": "Learn More"
+  },
+  "communication": {
+    "heading": "Any questions, suggestions, or inquiries?",
+    "name_placeholder": "Your Name",
+    "tel_placeholder": "Your Phone Number",
+    "message_placeholder": "Your Message",
+    "submit_button": "Send",
+    "success_message": "Message sent",
+    "error_message": "An error occurred: {{error}}"
+  },
+  "footer": {
+    "company": "Our Company",
+    "projects": "Projects",
+    "news": "News",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "aboutPage": {
+    "title": "ATAEV BAHODIR BUILD",
+    "backToHome": "Back to Home",
+    "description": "We don’t just create projects; we create new opportunities. By constructing state-scale facilities, we are building the future. We care about the environment: the company takes full responsibility for the ecological aspects related to the construction and use of buildings and infrastructure.",
+    "imgAlt": "about page image"
+  }
+  }
+  
