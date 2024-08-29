@@ -19,15 +19,15 @@ function Showcase(props) {
         <p className="lg:text-3xl md:text-2xl text-xl">
           {t("showcase.subtitle")}
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex justify-center">
           <button
-            className="px-4 py-2 border-white border-2 rounded-xl hover:bg-white hover:text-black"
+            className="px-4 py-2 border-white border-2 rounded-xl bg-transparent text-white hover:bg-teal-700 hover:text-white transition-colors duration-300"
             onClick={() => navigate("/projects")}
           >
             {t("showcase.projects_button")}
           </button>
           <a href="tel:+998901234567">
-            <button className="px-4 py-2 border-white border-2 rounded-xl ml-4 hover:bg-white hover:text-black">
+            <button className="px-4 py-2 border-white border-2 rounded-xl ml-4 bg-transparent text-white hover:bg-teal-600 hover:text-white transition-colors duration-300">
               {t("showcase.contact_button")}
             </button>
           </a>

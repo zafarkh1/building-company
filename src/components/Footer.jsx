@@ -28,10 +28,7 @@ function Footer(props) {
   const navbarHeight = 84;
 
   return (
-    <div
-      className="bg-amber-100 lg:px-[10rem] px-6 lg:py-12 py-6 flex lg:flex-row 
-    flex-col lg:justify-between lg:items-stretch items-center"
-    >
+    <div className="bg-gray-100 lg:px-[10rem] px-6 lg:py-12 py-6 flex lg:flex-row flex-col lg:justify-between lg:items-stretch items-center">
       {/* Logo and icons */}
       <div className="lg:w-1/2">
         <div className="cursor-pointer" onClick={() => navigate("/")}>
@@ -42,14 +39,14 @@ function Footer(props) {
             width={120}
           />
         </div>
-        <ul className="flex gap-6 text-2xl lg:mt-6 mt-4">
+        <ul className="flex gap-6 text-2xl lg:mt-6 mt-4 text-gray-700">
           {socialMedia.map((item, index) => (
             <li key={index}>
               <a
-                rel="noopener noreferrer"
                 href={item.link}
-                className="hover:text-gray-300 transition-colors duration-300"
+                className="hover:text-teal-500 transition-colors duration-300"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {item.icon}
               </a>
@@ -61,10 +58,12 @@ function Footer(props) {
       <div className="lg:w-1/2 w-full flex justify-between lg:mt-0 mt-8">
         {/* Company links */}
         <div>
-          <h4 className="lg:text-xl font-medium">{t("footer.company")}</h4>
+          <h4 className="text-gray-900 lg:text-xl font-medium">
+            {t("footer.company")}
+          </h4>
           <ul className="flex flex-col gap-3">
             {company.map((item, index) => (
-              <li key={index} className="ml-1 mt-3 lg:text-lg">
+              <li key={index} className="ml-1 mt-3 lg:text-lg text-gray-700">
                 <Link
                   to={item.link}
                   className="hover:text-blue-500 transition-colors duration-300"
@@ -83,10 +82,12 @@ function Footer(props) {
 
         {/* Phone numbers */}
         <div>
-          <h4 className="lg:text-xl font-medium">{t("footer.contact")}</h4>
+          <h4 className="lg:text-xl font-medium text-gray-900">
+            {t("footer.contact")}
+          </h4>
           <ul className="flex flex-col gap-3">
             {communication.map((item, index) => (
-              <li key={index} className="ml-1 mt-3 lg:text-lg">
+              <li key={index} className="ml-1 mt-3 lg:text-lg text-gray-700">
                 <a
                   href={item.link}
                   className="hover:text-blue-500 transition-colors duration-300"

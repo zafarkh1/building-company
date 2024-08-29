@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import Message from "../utils/Message";
 import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Communication(props) {
   const { sendMessage, error, loading, success } = Message();
   const { t } = useTranslation();
 
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
-    <div className="bg-slate-800 lg:px-[10rem] px-6 lg:py-12 py-6">
+    <div className="bg-gray-900 lg:px-[10rem] px-6 lg:py-12 py-6">
       <div
         id="communication"
         className="relative bg-cover bg-no-repeat bg-top lg:px-10 px-6 lg:py-16 py-8 text-white rounded-xl shadow-lg"
@@ -17,7 +25,7 @@ function Communication(props) {
         </h2>
         <form
           onSubmit={sendMessage}
-          className="space-y-6 max-w-md lg:mx-0 mx-auto lg:text-base text-sm"
+          className="space-y-6 max-w-md lg:mx-0 mx-auto lg:text-base text-sm "
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-easing="ease-in-quart"
@@ -27,24 +35,24 @@ function Communication(props) {
             type="text"
             placeholder={t("communication.name_placeholder")}
             required
-            className="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             id="tel"
             type="tel"
             placeholder={t("communication.tel_placeholder")}
             required
-            className="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <textarea
             id="msg"
             placeholder={t("communication.message_placeholder")}
             required
-            className="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
           />
           <button
             type="submit"
-            className="w-full px-4 py-3 rounded-xl border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition-all duration-300"
+            className="w-full px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300"
             disabled={loading}
           >
             {t("communication.submit_button")}

@@ -37,16 +37,16 @@ function Services(props) {
   return (
     <div
       id="services"
-      className="bg-amber-100 lg:px-[10rem] px-6 lg:py-12 py-6"
+      className="bg-gray-100 lg:px-[10rem] px-6 lg:py-12 py-6 overflow-x-hidden"
     >
       <h2 className="lg:text-5xl text-2xl font-medium text-center">
         {t("services.title")}
       </h2>
-      <div className="grid sm:grid-cols-2 lg:gap-8 sm:gap-6 gap-5 lg:mt-10 mt-6 text-white">
+      <div className="grid sm:grid-cols-2 lg:gap-8 sm:gap-6 gap-5 lg:mt-10 mt-6 text-gray-100">
         {items.map((item, index) => (
           <div
             key={index}
-            className="bg-slate-800 flex items-center justify-between rounded-xl pl-5"
+            className="bg-gray-800 flex items-center justify-between rounded-xl pl-5"
             data-aos={item.aos}
             data-aos-duration="1000"
             data-aos-easing="ease-in-quart"

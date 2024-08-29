@@ -36,7 +36,7 @@ function Stats(props) {
         className="relative bg-cover bg-no-repeat bg-bottom lg:px-[10rem] px-6 lg:py-12 py-6 text-white"
         style={{ backgroundImage: `url("/images/stats.jpg")` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-700/30"></div>
 
         <div className="relative z-1">
           <h2 className="lg:text-5xl text-2xl font-medium lg:text-left text-center">
@@ -45,7 +45,7 @@ function Stats(props) {
           <div className="grid lg:grid-cols-4 grid-cols-2 gap-8 lg:w-2/3 w-full lg:mt-16 mt-8">
             {items.map((item, index) => (
               <div key={index} className="lg:text-left text-center">
-                <div className="lg:text-5xl text-2xl font-medium lg:mb-4">
+                <div className="lg:text-5xl text-2xl font-medium lg:mb-4 text-teal-400">
                   {counterOn && (
                     <>
                       <CountUp start={0} end={item.quantity} duration={4} />

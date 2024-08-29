@@ -26,6 +26,12 @@ function Navbar() {
     { title: t("navbar.contact"), link: "communication" },
   ];
 
+  const languages = {
+    uz: t("navbar.language_uz"),
+    ru: t("navbar.language_ru"),
+    en: t("navbar.language_en"),
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -37,19 +43,14 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
-  const handleChange = (e) => {
-    i18n.changeLanguage(e.target.value);
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
   };
 
   return (
@@ -57,14 +58,14 @@ function Navbar() {
       className={`fixed top-0 left-0 right-0 z-10 lg:px-24 px-4 py-3 transition-all duration-500 ease-in ${
         location.pathname === "/" && !isScrolled
           ? "bg-transparent"
-          : "bg-yellow-600"
+          : "bg-gray-800"
       }`}
     >
-      <div className="flex justify-between items-center lg:block text-white">
+      <div className="flex justify-between items-center lg:block text-gray-100">
         <div className="lg:hidden">
           <button
             onClick={() => setOpen(!open)}
-            className={`text-3xl absolute top-6 left-8 cursor-pointer z-50`}
+            className="text-3xl absolute top-6 left-8 cursor-pointer z-50"
             aria-label={t("navbar.toggle_menu")}
           >
             {open ? null : <GiHamburgerMenu />}
@@ -81,16 +82,14 @@ function Navbar() {
       </div>
 
       <ul
-        className={`fixed lg:static top-0 left-0 h-full lg:w-auto sm:w-1/3 w-1/2 lg:flex lg:items-center lg:justify-between bg-red-800 
-          lg:bg-transparent lg:p-0 sm:px-8 py-10 px-6 transition-transform duration-500 ease-in-out ${
-            open
-              ? "translate-x-0"
-              : "-translate-x-full lg:translate-x-0 text-white"
+        className={`fixed lg:static top-0 left-0 h-full lg:w-auto sm:w-1/3 w-1/2 lg:flex lg:items-center lg:justify-between bg-gray-800
+          lg:bg-transparent lg:p-0 sm:px-8 py-10 px-6 text-gray-100 transition-transform duration-500 ease-in-out ${
+            open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           } z-50`}
       >
         <button
           onClick={() => setOpen(!open)}
-          className={`lg:hidden md:text-3xl text-2xl absolute top-6 right-6 cursor-pointer z-50`}
+          className="lg:hidden md:text-3xl text-2xl absolute top-6 right-6 cursor-pointer z-50"
           aria-label={t("navbar.toggle_menu")}
         >
           <FaTimes />
@@ -99,7 +98,7 @@ function Navbar() {
           <li key={index} className="lg:ml-6 lg:my-0 my-6">
             <Link
               to={item.link}
-              className="text-lg lg:text-base hover:text-blue-500 transition-colors duration-300"
+              className="relative text-lg lg:text-base group"
               onClick={() => setOpen(false)}
               href={item.link}
               spy={true}
@@ -108,12 +107,16 @@ function Navbar() {
               duration={1500}
             >
               {item.title}
+              <span
+                className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
+              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+              ></span>
             </Link>
           </li>
         ))}
 
         <li
-          className="hidden lg:block lg:mx-6 cursor-pointer"
+          className="relative hidden lg:block lg:mx-6 cursor-pointer group"
           onClick={() => navigate("/")}
         >
           <img
@@ -122,13 +125,17 @@ function Navbar() {
             height={110}
             width={110}
           />
+          <span
+            className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
+              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+          ></span>
         </li>
 
         {list2.map((item, index) => (
           <li key={index} className="lg:ml-6 lg:my-0 my-6">
             <Link
               to={item.link}
-              className="text-lg lg:text-base hover:text-blue-500 transition-colors duration-300"
+              className="relative text-lg lg:text-base group"
               onClick={() => setOpen(false)}
               href={item.link}
               spy={true}
@@ -137,18 +144,31 @@ function Navbar() {
               duration={1500}
             >
               {item.title}
+              <span
+                className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
+              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+              ></span>
             </Link>
           </li>
         ))}
-        <li className="lg:mb-0 mb-4">
-          <select
-            onChange={handleChange}
-            className="lg:text-xl text-base bg-white border border-gray-300 text-gray-800 outline-none py-1 px-2 rounded-lg"
+        <li className="lg:mb-0 mb-4 relative group">
+          <button className="focus:outline-none bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+            {languages[i18n.language]}
+          </button>
+          <ul
+            className="absolute left-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg py-2 opacity-0 
+               group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-out"
           >
-            <option value="uz">{t("navbar.language_uz")}</option>
-            <option value="ru">{t("navbar.language_ru")}</option>
-            <option value="en">{t("navbar.language_en")}</option>
-          </select>
+            {Object.keys(languages).map((lang, index) => (
+              <li
+                key={index}
+                className="px-4 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer transition-colors duration-300"
+                onClick={() => handleLanguageChange(lang)}
+              >
+                {languages[lang]}
+              </li>
+            ))}
+          </ul>
         </li>
       </ul>
     </div>

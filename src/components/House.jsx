@@ -37,11 +37,11 @@ function House(props) {
       </h2>
       <div className="lg:mt-10 mt-5 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-0">
         {items.map((item, index) => (
-          <div className="relative w-full h-64" key={index}>
+          <div className="relative w-full h-64 " key={index}>
             <img
               src={item.scr}
               alt={item.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:opacity-90 border-gray-300"
             />
           </div>
         ))}

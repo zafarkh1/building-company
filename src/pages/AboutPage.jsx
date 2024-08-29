@@ -13,7 +13,8 @@ function AboutPage() {
       </h2>
       <button
         onClick={() => navigate("/")}
-        className="absolute md:top-0 -top-10 flex items-center justify-center bg-yellow-600 text-white md:py-2 py-1 md:px-4 px-2 rounded-full shadow-md hover:bg-yellow-700 transition-all duration-300"
+        className="absolute md:top-0 -top-10 flex items-center justify-center bg-teal-600 text-white md:py-2 py-1 
+        md:px-4 px-2 rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300"
       >
         <FaArrowLeft className="mr-2" />
         {t("aboutPage.backToHome")}
@@ -26,7 +27,7 @@ function AboutPage() {
           <img
             src="/images/aboutPage.jpg"
             alt={t("aboutPage.imgAlt")}
-            className="rounded-xl object-cover w-full lg:w-[500px] lg:h-[200px] max-w-full"
+            className="rounded-xl object-cover w-full lg:w-[500px] lg:h-[300px] max-w-full"
           />
         </div>
       </div>

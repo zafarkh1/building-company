@@ -38,24 +38,24 @@ function Projects(props) {
 
   return (
     <div id="projects" className="lg:px-[10rem] px-6 lg:py-12 py-6">
-      <h2 className="lg:text-5xl text-2xl font-medium text-center">
+      <h2 className="lg:text-5xl text-2xl font-medium text-center text-gray-800">
         {t("projects.our_projects")}
       </h2>
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-6 lg:mt-8 mt-4 text-white">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-6 lg:mt-8 mt-4">
         {items.map((item, index) => (
           <div
             key={index}
             style={{ backgroundImage: `url(${item.img})` }}
             className="relative bg-cover bg-no-repeat bg-center px-4 rounded-lg h-[20rem] group overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20"></div>
 
             <div
               className="absolute bottom-0 left-0 w-full p-4 flex flex-col items-start justify-end h-full transition-transform 
               transform translate-y-0 group-hover:translate-y-[-30%] duration-700 ease-in-out"
             >
-              <h4 className="lg:text-3xl text-xl">{item.title}</h4>
-              <p className="lg:text-base text-sm opacity-0 group-hover:opacity-100 mt-2 transition-opacity duration-700 ease-in-out">
+              <h4 className="lg:text-3xl text-xl text-white">{item.title}</h4>
+              <p className="lg:text-base text-sm text-white opacity-0 group-hover:opacity-100 mt-2 transition-opacity duration-700 ease-in-out">
                 {item.desc}
               </p>
             </div>

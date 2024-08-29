@@ -10,7 +10,8 @@
       "logo_alt": "logo",
       "language_uz": "Uzbek",
       "language_ru": "Russian",
-      "language_en": "English"
+      "language_en": "English",
+      "language": "Language"
     },
     "showcase": {
         "subtitle": "Everything is perfect",
