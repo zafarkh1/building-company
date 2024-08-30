@@ -75,6 +75,7 @@
     "tel_placeholder": "Ваш номер телефона",
     "message_placeholder": "Ваше сообщение",
     "submit_button": "Отправить",
+    "loading_button": "Отправляется ...",
     "success_message": "Сообщение отправлено",
     "error_message": "Произошла ошибка: {{error}}"
   },

@@ -75,6 +75,7 @@
     "tel_placeholder": "Your Phone Number",
     "message_placeholder": "Your Message",
     "submit_button": "Send",
+    "loading_button": "Sending ...",
     "success_message": "Message sent",
     "error_message": "An error occurred: {{error}}"
   },

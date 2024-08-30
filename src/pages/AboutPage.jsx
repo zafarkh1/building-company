@@ -30,7 +30,6 @@ function AboutPage() {
             src="/images/aboutPage.jpg"
             alt={t("aboutPage.imgAlt")}
             className="rounded-xl object-cover w-full lg:w-[450px] lg:h-[250px] max-w-full"
-            // className="rounded-xl object-cover w-full lg:w-[500px] lg:h-auto max-w-full"
           />
         </div>
       </div>

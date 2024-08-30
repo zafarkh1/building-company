@@ -75,6 +75,7 @@
     "tel_placeholder": "Telefon raqamingiz",
     "message_placeholder": "Sizning xabaringiz",
     "submit_button": "Yuborish",
+    "loading_button": "Yuborilmoqda ...",
     "success_message": "Xabar yuborildi",
     "error_message": "Xatolik yuz berdi: {{error}}"
   },

@@ -55,7 +55,9 @@ function Communication(props) {
             className="w-full px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300"
             disabled={loading}
           >
-            {t("communication.submit_button")}
+            {loading
+              ? t("communication.loading_button")
+              : t("communication.submit_button")}
           </button>
         </form>
         {success && (
