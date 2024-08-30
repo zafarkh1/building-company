@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaPhoneAlt, FaTimes } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-scroll";
@@ -8,12 +8,14 @@ import { useTranslation } from "react-i18next";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const navbarHeight = 84;
-  const myLang = localStorage.getItem("i18nextLng");
 
   const list1 = [
     { title: t("navbar.services"), link: "services" },
@@ -50,8 +52,25 @@ function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && open) {
+        setOpen(false);
+      }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open, showDropdown]);
+
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
+    setShowDropdown(false);
   };
 
   return (
@@ -83,7 +102,8 @@ function Navbar() {
       </div>
 
       <ul
-        className={`fixed lg:static top-0 left-0 h-full lg:w-auto sm:w-1/3 w-1/2 lg:flex lg:items-center lg:justify-between bg-gray-800
+        ref={menuRef}
+        className={`fixed lg:static top-0 left-0 h-full lg:w-auto sm:w-1/3 w-3/5 lg:flex lg:items-center lg:justify-between bg-gray-800
           lg:bg-transparent lg:p-0 sm:px-8 py-10 px-6 text-gray-100 transition-transform duration-500 ease-in-out ${
             open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           } z-50`}
@@ -101,7 +121,6 @@ function Navbar() {
               to={item.link}
               className="relative text-lg lg:text-base group"
               onClick={() => setOpen(false)}
-              href={item.link}
               spy={true}
               smooth={true}
               offset={-navbarHeight}
@@ -138,7 +157,6 @@ function Navbar() {
               to={item.link}
               className="relative text-lg lg:text-base group"
               onClick={() => setOpen(false)}
-              href={item.link}
               spy={true}
               smooth={true}
               offset={-navbarHeight}
@@ -152,20 +170,26 @@ function Navbar() {
             </Link>
           </li>
         ))}
-        <li className="lg:mb-0 mb-4 relative group">
+        <li
+          ref={dropdownRef}
+          className="lg:mb-0 mb-4 relative group"
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
           <button className="focus:outline-none bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
             {languages[i18n.language]}
           </button>
           <ul
-            className="absolute left-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg py-2 opacity-0 
-               group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 ease-out"
+            className={`absolute left-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg py-2 opacity-0 ${
+              showDropdown ? "opacity-100" : "opacity-0"
+            } transform scale-95 ${
+              showDropdown ? "scale-100" : "scale-95"
+            } transition-all duration-300 ease-out`}
           >
             {Object.keys(languages).map((lang, index) => (
               <li
                 key={index}
                 className="px-4 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer transition-colors duration-300"
                 onClick={() => handleLanguageChange(lang)}
-                value={myLang}
               >
                 {languages[lang]}
               </li>
