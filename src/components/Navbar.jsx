@@ -13,6 +13,7 @@ function Navbar() {
   const { t, i18n } = useTranslation();
 
   const navbarHeight = 84;
+  const myLang = localStorage.getItem("i18nextLng");
 
   const list1 = [
     { title: t("navbar.services"), link: "services" },
@@ -65,7 +66,7 @@ function Navbar() {
         <div className="lg:hidden">
           <button
             onClick={() => setOpen(!open)}
-            className="text-3xl absolute top-6 left-8 cursor-pointer z-50"
+            className="text-3xl absolute top-6 left-8 cursor-pointer z-50 -ml-3"
             aria-label={t("navbar.toggle_menu")}
           >
             {open ? null : <GiHamburgerMenu />}
@@ -164,6 +165,7 @@ function Navbar() {
                 key={index}
                 className="px-4 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer transition-colors duration-300"
                 onClick={() => handleLanguageChange(lang)}
+                value={myLang}
               >
                 {languages[lang]}
               </li>

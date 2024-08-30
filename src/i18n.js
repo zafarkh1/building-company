@@ -7,13 +7,15 @@ import uzTranslation from "./locales/uz.json";
 import ruTranslation from "./locales/ru.json";
 import enTranslation from "./locales/en.json";
 
+const lang = localStorage.getItem("i18nextLng") || "uz";
+
 i18n
   .use(Backend)
   .use(languageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    lng: "uz",
+    lng: lang,
     debug: true,
     resources: {
       uz: { translation: uzTranslation },

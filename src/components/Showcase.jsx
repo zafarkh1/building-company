@@ -12,7 +12,7 @@ function Showcase(props) {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
 
-      <div className="relative z-1 flex flex-col gap-16">
+      <div className="relative z-1 flex flex-col gap-16 px-4">
         <h1 className="xl:text-8xl lg:text-6xl md:text-5xl text-4xl font-medium uppercase">
           Atayev Bahodir Build
         </h1>

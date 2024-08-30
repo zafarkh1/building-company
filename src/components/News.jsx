@@ -9,6 +9,22 @@ function News(props) {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    const handleAnimationStart = () => {
+      document.body.style.overflowX = "hidden";
+    };
+
+    const handleAnimationEnd = () => {
+      document.body.style.overflowX = "auto";
+    };
+
+    window.addEventListener("aos:in", handleAnimationStart);
+    window.addEventListener("aos:out", handleAnimationEnd);
+
+    return () => {
+      window.removeEventListener("aos:in", handleAnimationStart);
+      window.removeEventListener("aos:out", handleAnimationEnd);
+    };
   }, []);
 
   const items = [
