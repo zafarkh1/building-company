@@ -1,9 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function About(props) {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   return (
     <div
