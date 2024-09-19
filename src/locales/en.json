@@ -76,8 +76,16 @@
     "message_placeholder": "Your Message",
     "submit_button": "Send",
     "loading_button": "Sending ...",
-    "success_message": "Message sent",
-    "error_message": "An error occurred: {{error}}"
+    "success_message": "Successfully sent",
+    "error_message": "Occured error while sending a message",
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 3 characters long",
+      "nameNotNumber": "Name cannot be a number",
+      "telRequired": "Telephone number is required",
+      "telInvalid": "Invalid phone number",
+      "nameInvalidChars": "Name contains invalid characters"
+    }
   },
   "footer": {
     "company": "Our Company",

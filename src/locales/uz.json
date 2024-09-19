@@ -76,8 +76,16 @@
     "message_placeholder": "Sizning xabaringiz",
     "submit_button": "Yuborish",
     "loading_button": "Yuborilmoqda ...",
-    "success_message": "Xabar yuborildi",
-    "error_message": "Xatolik yuz berdi: {{error}}"
+    "success_message": "Muvaffaqiyatli jo'natildi",
+    "error_message": "Xabarni yuborishda xatolik yuz berdi",
+    "validation": {
+      "nameRequired": "Ism majburiy",
+      "nameMinLength": "Ism kamida 3 ta belgidan iborat bo'lishi kerak",
+      "nameNotNumber": "Ism raqam bo'lishi mumkin emas",
+      "telRequired": "Telefon raqami talab qilinadi",
+      "telInvalid": "Noto'g'ri telefon raqami",
+      "nameInvalidChars": "Ismda noto'g'ri belgilardan foydalanilgan"
+    }
   },
   "footer": {
     "company": "Kompaniyamiz",

@@ -10,21 +10,21 @@ function News(props) {
     AOS.init();
     AOS.refresh();
 
-    const handleAnimationStart = () => {
-      document.body.style.overflowX = "hidden";
-    };
+    // const handleAnimationStart = () => {
+    //   document.body.style.overflowX = "hidden";
+    // };
 
-    const handleAnimationEnd = () => {
-      document.body.style.overflowX = "auto";
-    };
+    // const handleAnimationEnd = () => {
+    //   document.body.style.overflowX = "auto";
+    // };
 
-    window.addEventListener("aos:in", handleAnimationStart);
-    window.addEventListener("aos:out", handleAnimationEnd);
+    // window.addEventListener("aos:in", handleAnimationStart);
+    // window.addEventListener("aos:out", handleAnimationEnd);
 
-    return () => {
-      window.removeEventListener("aos:in", handleAnimationStart);
-      window.removeEventListener("aos:out", handleAnimationEnd);
-    };
+    // return () => {
+    //   window.removeEventListener("aos:in", handleAnimationStart);
+    //   window.removeEventListener("aos:out", handleAnimationEnd);
+    // };
   }, []);
 
   const items = [
@@ -57,7 +57,7 @@ function News(props) {
   return (
     <div
       id="news"
-      className="bg-gray-100 lg:px-[10rem] px-6 lg:py-12 py-6 overflow-x-hidden"
+      className="bg-gray-100 lg:px-[10rem] px-6 lg:py-12 py-6 overflow-hidden"
     >
       <h2 className="lg:text-5xl text-2xl font-medium text-center text-gray-800">
         {t("news.all_news")}

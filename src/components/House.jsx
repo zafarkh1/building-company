@@ -41,7 +41,7 @@ function House(props) {
             <img
               src={item.scr}
               alt={item.alt}
-              className="w-full h-full object-cover hover:opacity-90 border-gray-300"
+              className="w-full h-full object-cover lg:hover:opacity-90 border-gray-300"
             />
           </div>
         ))}

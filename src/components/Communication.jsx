@@ -1,17 +1,81 @@
-import { useEffect } from "react";
-import Message from "../utils/Message";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast, ToastContainer } from "react-toastify";
+import PhoneInput from "react-phone-input-2";
 import AOS from "aos";
+import "react-phone-input-2/lib/style.css";
+import "react-toastify/dist/ReactToastify.css";
 import "aos/dist/aos.css";
+import Message from "../utils/Message";
 
 function Communication(props) {
-  const { sendMessage, error, loading, success } = Message();
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [errors, setErrors] = useState({ name: "", tel: "" });
+  const { sendMessage, loading } = Message();
   const { t } = useTranslation();
 
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
+  const validateField = (fieldName, value) => {
+    let error = "";
+
+    // Trim the value to remove leading/trailing spaces
+    const trimmedValue = value.trim();
+
+    // Define a regex to check for invalid characters (non-alphabetical or name-related characters)
+    const invalidCharacters = /[^a-zA-Z\s'-]/; // Allows letters, spaces, hyphens, and apostrophes
+
+    switch (fieldName) {
+      case "name":
+        if (!trimmedValue) {
+          error = t("communication.validation.nameRequired");
+        } else if (trimmedValue.length < 3) {
+          error = t("communication.validation.nameMinLength");
+        } else if (invalidCharacters.test(trimmedValue)) {
+          error = t("communication.validation.nameInvalidChars");
+        } else if (!isNaN(parseFloat(trimmedValue)) && isFinite(trimmedValue)) {
+          error = t("communication.validation.nameNotNumber");
+        }
+        break;
+
+      case "tel":
+        if (!trimmedValue) {
+          error = t("communication.validation.telRequired");
+        } else if (trimmedValue.length < 10) {
+          error = t("communication.validation.telInvalid");
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [fieldName]: error }));
+    return error === "";
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const isNameValid = validateField("name", name);
+    const isTelValid = validateField("tel", tel);
+
+    if (isNameValid && isTelValid) {
+      try {
+        await sendMessage({ name, tel });
+        toast.success(t("communication.success_message"));
+        setName("");
+        setTel("");
+        setErrors({ name: "", tel: "" });
+      } catch (err) {
+        toast.error(t("communication.error_message"));
+      }
+    }
+  };
 
   return (
     <div className="bg-gray-900 lg:px-[10rem] px-6 lg:py-12 py-6">
@@ -24,32 +88,55 @@ function Communication(props) {
           {t("communication.heading")}
         </h2>
         <form
-          onSubmit={sendMessage}
+          onSubmit={handleSubmit}
           className="space-y-6 max-w-md lg:mx-0 mx-auto lg:text-base text-sm "
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-easing="ease-in-quart"
         >
-          <input
-            id="name"
-            type="text"
-            placeholder={t("communication.name_placeholder")}
-            required
-            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            id="tel"
-            type="tel"
-            placeholder={t("communication.tel_placeholder")}
-            required
-            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <textarea
-            id="msg"
-            placeholder={t("communication.message_placeholder")}
-            required
-            className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
-          />
+          <div>
+            <input
+              id="name"
+              type="text"
+              placeholder={t("communication.name_placeholder")}
+              className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={() => validateField("name", name)}
+            />
+            {errors.name && (
+              <p className="text-red-700 text-sm">{errors.name}</p>
+            )}
+          </div>
+          <div>
+            <PhoneInput
+              country={"uz"}
+              value={tel}
+              onChange={(phone) => setTel(phone)}
+              containerStyle={{
+                width: "100%",
+                color: "black",
+              }}
+              inputProps={{
+                id: "tel",
+              }}
+              inputStyle={{
+                width: "100%",
+                borderColor: "#D1D5DB",
+                backgroundColor: "#e5e7eb",
+              }}
+              containerClass="inputContainer"
+              inputClass="contactInput"
+            />
+            {errors.tel && <p className="text-red-700 text-sm">{errors.tel}</p>}
+          </div>
+          <div>
+            <textarea
+              id="msg"
+              placeholder={t("communication.message_placeholder")}
+              className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+            />
+          </div>
           <button
             type="submit"
             className="w-full px-4 py-3 rounded-xl border-2 border-teal-600 bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300"
@@ -60,49 +147,19 @@ function Communication(props) {
               : t("communication.submit_button")}
           </button>
         </form>
-        {success && (
-          <div className="absolute md:top-[-3rem] md:right-[-12rem] top-0 right-5 transform -translate-x-1/2 p-4 bg-green-100 border border-green-300 rounded-lg flex items-center shadow-lg">
-            <svg
-              className="w-6 h-6 text-green-600 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              ></path>
-            </svg>
-            <p className="text-green-700">
-              {t("communication.success_message")}
-            </p>
-          </div>
-        )}
-        {error && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 p-4 bg-red-100 border border-red-300 rounded-lg flex items-center shadow-lg">
-            <svg
-              className="w-6 h-6 text-red-600 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-            <p className="text-red-700">
-              {t("communication.error_message", { error })}
-            </p>
-          </div>
-        )}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

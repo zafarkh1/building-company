@@ -37,7 +37,10 @@ function About(props) {
         </p>
         <button
           className="px-4 py-2 border-teal-600 border-2 rounded-xl bg-teal-600 text-white hover:bg-teal-700 w-1/2"
-          onClick={() => navigate("/about")}
+          onClick={() => {
+            navigate("/about");
+            window.scroll(0, 0);
+          }}
         >
           {t("about.learn_more")}
         </button>

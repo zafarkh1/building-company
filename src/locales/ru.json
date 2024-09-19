@@ -76,8 +76,16 @@
     "message_placeholder": "Ваше сообщение",
     "submit_button": "Отправить",
     "loading_button": "Отправляется ...",
-    "success_message": "Сообщение отправлено",
-    "error_message": "Произошла ошибка: {{error}}"
+    "success_message": "Успешно отправлено",
+    "error_message": "Произошла ошибка при отправке сообщения",
+    "validation": {
+      "nameRequired": "Имя обязательно",
+      "nameMinLength": "Имя должно содержать не менее 3 символов",
+      "nameNotNumber": "Имя не может быть числом",
+      "telRequired": "Требуется номер телефона",
+      "telInvalid": "Неверный номер телефона",
+      "nameInvalidChars": "Имя содержит недопустимые символы"
+    }
   },
   "footer": {
     "company": "Наша компания",

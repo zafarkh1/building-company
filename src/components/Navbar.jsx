@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { FaPhoneAlt, FaTimes } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-scroll";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -9,13 +8,12 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [targetSection, setTargetSection] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
-
-  const navbarHeight = 84;
 
   const list1 = [
     { title: t("navbar.services"), link: "services" },
@@ -73,6 +71,38 @@ function Navbar() {
     setShowDropdown(false);
   };
 
+  // Scroll after navigating back to home
+  useEffect(() => {
+    if (location.pathname === "/" && targetSection) {
+      const section = document.getElementById(targetSection);
+      if (section) {
+        const yOffset = -84; // Adjust according to your navbar height (84px here)
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+      setTargetSection(null); // Clear the target after scrolling
+    }
+  }, [location, targetSection]);
+
+  const handleLinkClick = (link) => {
+    if (location.pathname !== "/") {
+      // If we're not on the homepage, navigate to the homepage first
+      setTargetSection(link); // Store the section to scroll to
+      navigate("/");
+    } else {
+      // If already on the homepage, scroll immediately
+      const section = document.getElementById(link);
+      if (section) {
+        const yOffset = -84; // Adjust according to your navbar height
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+    setOpen(false);
+  };
+
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-10 lg:px-24 px-4 py-3 transition-all duration-500 ease-in ${
@@ -104,7 +134,7 @@ function Navbar() {
       <ul
         ref={menuRef}
         className={`fixed lg:static top-0 left-0 h-full lg:w-auto sm:w-1/3 w-3/5 lg:flex lg:items-center lg:justify-between bg-gray-800
-          lg:bg-transparent lg:p-0 sm:px-8 py-10 px-6 text-gray-100 transition-transform duration-500 ease-in-out ${
+          lg:bg-transparent lg:p-0 sm:px-8 py-10 px-6 text-gray-100 transition-transform duration-500 ease-in-out cursor-pointer ${
             open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           } z-50`}
       >
@@ -117,21 +147,16 @@ function Navbar() {
         </button>
         {list1.map((item, index) => (
           <li key={index} className="lg:ml-6 lg:my-0 my-6">
-            <Link
-              to={item.link}
-              className="relative text-lg lg:text-base group"
-              onClick={() => setOpen(false)}
-              spy={true}
-              smooth={true}
-              offset={-navbarHeight}
-              duration={1500}
+            <span
+              className="relative text-lg lg:text-base group cursor-pointer"
+              onClick={() => handleLinkClick(item.link)}
             >
               {item.title}
               <span
                 className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
-              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+              transform scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 ease-in"
               ></span>
-            </Link>
+            </span>
           </li>
         ))}
 
@@ -147,27 +172,22 @@ function Navbar() {
           />
           <span
             className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
-              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+              transform scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 ease-in"
           ></span>
         </li>
 
         {list2.map((item, index) => (
-          <li key={index} className="lg:ml-6 lg:my-0 my-6">
-            <Link
-              to={item.link}
-              className="relative text-lg lg:text-base group"
-              onClick={() => setOpen(false)}
-              spy={true}
-              smooth={true}
-              offset={-navbarHeight}
-              duration={1500}
+          <li key={index} className="lg:ml-6 lg:my-0 my-6 cursor-pointer">
+            <span
+              className="relative text-lg lg:text-base group cursor-pointer"
+              onClick={() => handleLinkClick(item.link)}
             >
               {item.title}
               <span
                 className="absolute -bottom-2 -left-2 -right-2 h-1 bg-teal-500 rounded-full 
-              transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in"
+              transform scale-x-0 lg:group-hover:scale-x-100 transition-transform duration-500 ease-in"
               ></span>
-            </Link>
+            </span>
           </li>
         ))}
         <li

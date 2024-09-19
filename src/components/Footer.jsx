@@ -44,7 +44,7 @@ function Footer(props) {
             <li key={index}>
               <a
                 href={item.link}
-                className="hover:text-teal-500 transition-colors duration-300"
+                className="lg:hover:text-teal-500 transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -66,12 +66,13 @@ function Footer(props) {
               <li key={index} className="ml-1 mt-3 lg:text-lg text-gray-700">
                 <Link
                   to={item.link}
-                  className="hover:text-blue-500 transition-colors duration-300"
+                  className="lg:hover:text-blue-500 transition-colors duration-300"
                   href={item.link}
                   spy={true}
                   smooth={true}
                   offset={-navbarHeight}
                   duration={1500}
+                  onClick={() => navigate("/")}
                 >
                   {t(`footer.${item.title}`)}
                 </Link>
@@ -90,7 +91,7 @@ function Footer(props) {
               <li key={index} className="ml-1 mt-3 lg:text-lg text-gray-700">
                 <a
                   href={item.link}
-                  className="hover:text-blue-500 transition-colors duration-300"
+                  className="lg:hover:text-blue-500 transition-colors duration-300"
                 >
                   {item.number}
                 </a>

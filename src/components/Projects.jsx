@@ -51,11 +51,16 @@ function Projects(props) {
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20"></div>
 
             <div
-              className="absolute bottom-0 left-0 w-full p-4 flex flex-col items-start justify-end h-full transition-transform 
-              transform translate-y-0 group-hover:translate-y-[-30%] duration-700 ease-in-out"
+              className="absolute lg:bottom-0 bottom-0 left-0 w-full p-4  h-full transition-all 
+              transform lg:translate-y-[250px] lg:group-hover:translate-y-[-3%] duration-700 ease-in-out"
             >
-              <h4 className="lg:text-3xl text-xl text-white">{item.title}</h4>
-              <p className="lg:text-base text-sm text-white opacity-0 group-hover:opacity-100 mt-2 transition-opacity duration-700 ease-in-out">
+              <h4 className="lg:text-3xl text-xl text-white lg:text-left text-center">
+                {item.title}
+              </h4>
+              <p
+                className="lg:text-base text-sm text-white lg:opacity-0 lg:group-hover:opacity-100 mt-2 transition-all 
+              duration-700 ease-in-out lg:text-left text-center"
+              >
                 {item.desc}
               </p>
             </div>
